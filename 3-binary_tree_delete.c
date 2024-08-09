@@ -13,16 +13,12 @@ void binary_tree_delete(binary_tree_t *tree)
 	curr = tree;
 	while (curr != NULL)
 	{
-		printf("at node(%d)\n", curr->n);
-
 		if (curr->left != NULL)
 			curr = curr->left;
 		else if (curr->right != NULL)
 			curr = curr->right;
 		else
 		{
-			binary_tree_print(tree);
-			printf("deleting node(%d)\n", curr->n);
 			hold = curr;
 			curr = curr->parent;
 			if (curr != NULL)
