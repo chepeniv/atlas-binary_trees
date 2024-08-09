@@ -1,7 +1,8 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_insert_left - creates a new leaf node unto the left of the given node
+ * binary_tree_insert_left - creates a new leaf node unto the left of the
+ * given node
  * @parent: parent node to pass on the new child node to
  * @value: value to initialize node with
  *
