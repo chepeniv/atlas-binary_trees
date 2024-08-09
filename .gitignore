@@ -1,5 +1,4 @@
-*.test.c
+*-test.c
 *.out
-*.guide
 *.output
 test/
