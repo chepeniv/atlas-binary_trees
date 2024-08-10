@@ -1,10 +1,10 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_leaves - measures the height of a tree
+ * binary_tree_nodes - counts the number of nodes with at least one child
  * @node: point from which to count from
  *
- * Return: height measured
+ * Return: number of nodes found
  */
 size_t binary_tree_nodes(const binary_tree_t *node)
 {
