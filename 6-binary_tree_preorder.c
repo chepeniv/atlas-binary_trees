@@ -1,9 +1,5 @@
 #include "binary_trees.h"
 
-binary_tree_t *stack_create(void);
-binary_tree_t *stack_pop(binary_tree_t **top);
-void stack_push(binary_tree_t **top, binary_tree_t *current);
-
 /**
  * binary_tree_preorder - operates on a given tree's nodes in preorder
  * @tree:
@@ -27,7 +23,6 @@ void binary_tree_preorder(const binary_tree_t *root, void (*func)(int))
 	while (current != NULL)
 	{
 		func(current->n);
-		getchar();
 		if (current->left != NULL)
 		{
 			if (current->right != NULL)
