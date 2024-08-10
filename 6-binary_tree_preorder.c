@@ -7,32 +7,30 @@
  *
  * Return: void
  */
-void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
+void binary_tree_preorder(const binary_tree_t *root, void (*func)(int))
 {
-	binary_tree_t *curr, *hold;
+	const binary_tree_t *current;
+	/* create a list of pointers */
 
-	if (tree == NULL || func == NULL)
+	if (root == NULL || func == NULL)
 		return;
 
-	curr = tree;
-	while (curr != NULL)
+	current = root;
+	while (current != NULL)
 	{
-		if (curr->left != NULL)
-			curr = curr->left;
-		else if (curr->right != NULL)
-			curr = curr->right;
+		func(current->n);
+		getchar();
+		if (current->left != NULL)
+			current = current->left;
+		else if (current->right != NULL)
+			current = current->right;
 		else
 		{
-			hold = curr;
-			curr = curr->parent;
-			if (curr != NULL)
-			{
-				if (curr->left == hold)
-					curr->left = NULL;
-				else
-					curr->right = NULL;
-			}
-			free(hold);
+			/* infinite loop */
+			current = current->parent;
+			while (current->right == NULL)
+				current = current->parent;
+			current = current->right;
 		}
 	}
 }

@@ -1,4 +1,11 @@
 *-test.c
+*.test.c
+*-main.c
+*.main.c
+*.omit
 *.out
 *.output
+*.backup
 test/
+test-*
+main-*
