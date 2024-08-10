@@ -1,11 +1,10 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_inorder - operates on a given tree's nodes in inorder
- * @node: the top of the binary tree
- * @func: function to call with binary node data
+ * binary_tree_height - measures the height of a tree
+ * @node: point from which to count from
  *
- * Return: void
+ * Return: height measured
  */
 size_t binary_tree_height(const binary_tree_t *node)
 {
