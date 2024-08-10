@@ -2,8 +2,8 @@
 
 /**
  * binary_tree_preorder - operates on a given tree's nodes in preorder
- * @tree:
- * @func:
+ * @root: the top of the binary tree
+ * @func: function to call with binary node data
  *
  * Return: void
  */
