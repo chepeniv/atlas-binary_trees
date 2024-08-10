@@ -1,5 +1,9 @@
 #include "binary_trees.h"
 
+binary_tree_t *stack_create(void);
+binary_tree_t *stack_pop(binary_tree_t **top);
+void stack_push(binary_tree_t **top, binary_tree_t *current);
+
 /**
  * binary_tree_preorder - operates on a given tree's nodes in preorder
  * @tree:
@@ -12,14 +16,12 @@ void binary_tree_preorder(const binary_tree_t *root, void (*func)(int))
 	const binary_tree_t *current;
 	binary_tree_t **stacktop;
 
-	stacktop = &malloc(sizeof(binary_tree_t));
-	if (root == NULL || func == NULL || *stack == NULL)
+	stacktop = malloc(sizeof(void *));
+
+	if (root == NULL || func == NULL)
 		return;
 
-	(*stacktop)->n = 0;
-	(*stacktop)->parent = NULL;
-	(*stacktop)->left = NULL;
-	(*stacktop)->right = NULL;
+	*stacktop = stack_create();
 
 	current = root;
 	while (current != NULL)
@@ -29,17 +31,34 @@ void binary_tree_preorder(const binary_tree_t *root, void (*func)(int))
 		if (current->left != NULL)
 		{
 			if (current->right != NULL)
-				stack_push(stacktop, current->right)
+				stack_push(stacktop, current->right);
 			current = current->left;
 		}
 		else if (current->right != NULL)
 			current = current->right;
 		else
-			current = stack_pop(top);
+			current = stack_pop(stacktop);
 	}
+	free(stacktop);
 }
 
-binary_tree_t *stack_top(binary_tree_t **top)
+binary_tree_t *stack_create(void)
+{
+	binary_tree_t *top;
+
+	top = malloc(sizeof(binary_tree_t));
+	if (top == NULL)
+		exit(1);
+
+	top->n = 0;
+	top->parent = NULL;
+	top->left = NULL;
+	top->right = NULL;
+
+	return (top);
+}
+
+binary_tree_t *stack_pop(binary_tree_t **top)
 {
 	binary_tree_t *current, *old_top;
 
@@ -47,7 +66,8 @@ binary_tree_t *stack_top(binary_tree_t **top)
 
 	old_top = *top;
 	*top = (*top)->right;
-	(*top)->left = NULL;
+	if (*top != NULL)
+		(*top)->left = NULL;
 	free(old_top);
 
 	return (current);
@@ -60,7 +80,7 @@ binary_tree_t *stack_top(binary_tree_t **top)
  *
  * Return: void
  */
-void stack_push(binary_tree_t **top, const binary_tree_t *current)
+void stack_push(binary_tree_t **top, binary_tree_t *current)
 {
 	binary_tree_t *new;
 
@@ -73,5 +93,5 @@ void stack_push(binary_tree_t **top, const binary_tree_t *current)
 	new->left = NULL;
 	new->right = *top;
 	(*top)->left = new;
-	top = &new;
+	*top = new;
 }
