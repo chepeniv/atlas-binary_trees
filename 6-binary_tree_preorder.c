@@ -12,11 +12,10 @@ void binary_tree_preorder(const binary_tree_t *root, void (*func)(int))
 	const binary_tree_t *current;
 	binary_tree_t **stacktop;
 
-	stacktop = malloc(sizeof(void *));
-
 	if (root == NULL || func == NULL)
 		return;
 
+	stacktop = malloc(sizeof(void *));
 	*stacktop = stack_create();
 
 	current = root;
