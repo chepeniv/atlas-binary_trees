@@ -3,33 +3,21 @@
 /**
  * binary_tree_delete - traverses the entirerity of a tree and deletes it
  * node by node
- * @tree: the tree to erase
+ * @node: the tree to erase
  *
  * Return: void
  */
-void binary_tree_delete(binary_tree_t *tree)
+void binary_tree_delete(binary_tree_t *node)
 {
-	binary_tree_t *curr, *hold;
+	binary_tree_t *left, *right;
 
-	curr = tree;
-	while (curr != NULL)
-	{
-		if (curr->left != NULL)
-			curr = curr->left;
-		else if (curr->right != NULL)
-			curr = curr->right;
-		else
-		{
-			hold = curr;
-			curr = curr->parent;
-			if (curr != NULL)
-			{
-				if (curr->left == hold)
-					curr->left = NULL;
-				else
-					curr->right = NULL;
-			}
-			free(hold);
-		}
-	}
+	if (node == NULL)
+		return;
+
+	left = node->left;
+	right = node->right;
+
+	binary_tree_delete(left);
+	binary_tree_delete(right);
+	free(node);
 }
