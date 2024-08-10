@@ -2,7 +2,6 @@
 *.test.c
 *-main.c
 *.main.c
-*.omit
 *.out
 *.output
 *.backup
