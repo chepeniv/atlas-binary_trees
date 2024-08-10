@@ -39,4 +39,8 @@ int binary_tree_is_leaf(const binary_tree_t *node);
 int binary_tree_is_root(const binary_tree_t *node);
 void binary_tree_delete(binary_tree_t *tree);
 
+binary_tree_t *stack_create(void);
+binary_tree_t *stack_pop(binary_tree_t **top);
+void stack_push(binary_tree_t **top, binary_tree_t *current);
+
 #endif /* BINARY_TREES_h */

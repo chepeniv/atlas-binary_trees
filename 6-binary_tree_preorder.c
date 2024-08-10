@@ -42,6 +42,11 @@ void binary_tree_preorder(const binary_tree_t *root, void (*func)(int))
 	free(stacktop);
 }
 
+/**
+ * stack_create - creates a stack by repurposing binary nodes
+ *
+ * Return: pointer to the top of the stack
+ */
 binary_tree_t *stack_create(void)
 {
 	binary_tree_t *top;
@@ -58,6 +63,12 @@ binary_tree_t *stack_create(void)
 	return (top);
 }
 
+/**
+ * stack_pop - removes top of the stack
+ * @top: top of the stack
+ *
+ * Return: pointer to binary node
+ */
 binary_tree_t *stack_pop(binary_tree_t **top)
 {
 	binary_tree_t *current, *old_top;
