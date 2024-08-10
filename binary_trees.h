@@ -26,12 +26,23 @@ typedef struct binary_tree_s bst_t;
 typedef struct binary_tree_s avl_t;
 typedef struct binary_tree_s heap_t;
 
+/**
+ * struct _stack_node - a stack to keep track of nodes in binary tree
+ *
+ * @up: pointer to the previous node
+ * @down: pointer to the next node
+ */
+typedef struct _stack_node
+{
+	binary_tree_t *up;
+	binary_tree_t *down;
+} stacknode;
+
 /* 
  * static functions included in a header file would cause them to be
  * redefined into every .c file that references that header file
  */
 void binary_tree_print(const binary_tree_t *tree);
-
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
