@@ -1,5 +1,7 @@
 #include "binary_trees.h"
 
+int is_perfect_eng(const binary_tree_t *node);
+
 /**
  * binary_tree_is_perfect -
  * @node: point from which to analyze from
@@ -14,10 +16,32 @@ int binary_tree_is_perfect(const binary_tree_t *node)
 		return (0);
 	if (node->left == NULL && node->right == NULL)
 		return (1);
-	if (node->left != NULL)
-		left = binary_tree_is_perfect(node->left);
-	if (node->right != NULL)
-		right = binary_tree_is_perfect(node->right);
 
-	return (left * right);
+	if (node->left != NULL)
+		left = is_perfect_eng(node->left);
+	if (node->right != NULL)
+		right = is_perfect_eng(node->right);
+
+	if (left == right && left != 0)
+		return (1);
+
+	return (0);
+}
+
+int is_perfect_eng(const binary_tree_t *node)
+{
+	int left = 1, right = 1;
+
+	if (node->left == NULL && node->right == NULL)
+		return (1);
+
+	if ((node->left != NULL && node->right != NULL))
+	{
+		left += is_perfect_eng(node->left);
+		right += is_perfect_eng(node->right);
+		if (left == right)
+			return (left + 1);
+	}
+
+	return (0);
 }
