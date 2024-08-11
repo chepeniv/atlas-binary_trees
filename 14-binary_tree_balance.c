@@ -12,6 +12,10 @@ int binary_tree_balance(const binary_tree_t *node)
 
 	if (node == NULL)
 		return (count);
+	if (node->left != NULL)
+		count++;
+	if (node->right != NULL)
+		count--;
 
 	count += binary_tree_height(node->left);
 	count -= binary_tree_height(node->right);
