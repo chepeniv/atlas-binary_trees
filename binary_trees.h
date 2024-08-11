@@ -54,3 +54,4 @@ binary_tree_t *stack_pop(binary_tree_t **top);
 void stack_push(binary_tree_t **top, binary_tree_t *current);
 
 #endif /* BINARY_TREES_h */
+binary_tree_t *binary_tree_uncle(binary_tree_t *node);
