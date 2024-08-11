@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_full - determines whether or not a given tree is full or not
+ * binary_tree_is_full - determines whether or not a given tree is full or not
  * @node: point from which to analyze from
  *
  * Return: if true: 1, else: 0
