@@ -3,7 +3,7 @@
 int is_perfect_eng(const binary_tree_t *node);
 
 /**
- * binary_tree_is_perfect -
+ * binary_tree_is_perfect - determines whether a given tree is perfect
  * @node: point from which to analyze from
  *
  * Return: if true: 1, else: 0
@@ -28,6 +28,12 @@ int binary_tree_is_perfect(const binary_tree_t *node)
 	return (0);
 }
 
+/**
+ * is_perfect_eng - measures and compares the heights of subtrees
+ * @node: point from which to analyze from
+ *
+ * Return: height of left and right subtrees if equal, otherwise 0
+ */
 int is_perfect_eng(const binary_tree_t *node)
 {
 	int left = 1, right = 1;
